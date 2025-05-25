@@ -1,0 +1,41 @@
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
+public class LeaveReportGenerator {
+
+    static class LeaveRecord {
+        String employeeId;
+        String name;
+        int leaveDays;
+        String leaveType;
+
+        LeaveRecord(String employeeId, String name, int leaveDays, String leaveType) {
+            this.employeeId = employeeId;
+            this.name = name;
+            this.leaveDays = leaveDays;
+            this.leaveType = leaveType;
+        }
+    }
+
+    public static void main(String[] args) {
+        LeaveRecord[] records = {
+            new LeaveRecord("E001", "Alice", 5, "Annual"),
+            new LeaveRecord("E002", "Bob", 2, "Sick"),
+            new LeaveRecord("E003", "Charlie", 3, "Annual")
+        };
+
+        generateLeaveReport(records);
+    }
+
+    public static void generateLeaveReport(LeaveRecord[] records) {
+        System.out.println("=== Leave Report ===");
+        System.out.println("Generated on: " + LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
+        System.out.println();
+        System.out.printf("%-10s %-10s %-12s %-10s%n", "Emp ID", "Name", "Leave Days", "Type");
+        System.out.println("-----------------------------------------------");
+        for (LeaveRecord record : records) {
+            System.out.printf("%-10s %-10s %-12d %-10s%n",
+                record.employeeId, record.name, record.leaveDays, record.leaveType);
+        }
+    }
+}
