@@ -1,8 +1,12 @@
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-
+/*
+    Dear Nawaf I recommend you to add comments to enhance the readability because it will allow others to understand your code easily.
+*/
 public class LeaveReportGenerator {
 
+
+    
     static class LeaveRecord {
         String employeeId;
         String name;
